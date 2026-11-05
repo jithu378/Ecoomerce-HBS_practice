@@ -127,5 +127,12 @@ router.get("/single_product/:id", async (req, res) => {
 });
 
 
+router.get("/login", async (req, res) => {
+    res.render("user_login")
+})
+router.get("/register", async (req, res) => {
+    res.render("user_register")
+})
+
 // EXPORT ROUTER
 module.exports = router;

@@ -142,7 +142,7 @@ input {
     color: var(--green);
     font-size: 10px;
     font-weight: 800;
-    letter-spacing: 1.15px;
+    letter-spacing: 0;
 }
 
 .brand-copy .eyebrow {
@@ -209,7 +209,7 @@ input {
     bottom: 2px;
     color: rgba(255, 253, 246, .66);
     font-size: 10px;
-    letter-spacing: .15px;
+    letter-spacing: 0;
 }
 
 .brand-footnote {
@@ -351,7 +351,7 @@ input {
     border-radius: 3px;
 }
 
-.password-field:has(.visibility-checkbox:checked) .password-input {
+.auth-form:has(.visibility-checkbox:checked) .password-input {
     -webkit-text-security: none;
 }
 
