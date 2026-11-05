@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --text: #111827;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --background: #f8fafc;
+    --success: #16a34a;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--background);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+}
+
+.page-container {
+    width: 100%;
+    max-width: 520px;
+}
+
+.product-card {
+    overflow: hidden;
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+    animation: fadeUp 0.4s ease;
+}
+
+/* Header */
+
+.card-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.product-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    border-radius: 14px;
+    background: #ecfdf3;
+    color: var(--success);
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.card-header h1 {
+    margin-bottom: 9px;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+}
+
+.card-header p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Product information */
+
+.product-info {
+    border-top: 1px solid var(--border);
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 17px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.label {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.value {
+    max-width: 60%;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.product-image-row {
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.product-image {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* Total price */
+
+.total-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 20px;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    background: #eff6ff;
+}
+
+.total-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+.total-description {
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.total-price {
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* Buttons */
+
+.card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    padding: 12px 16px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-secondary {
+    background: #ffffff;
+    border-color: var(--border);
+    color: #374151;
+}
+
+.btn-secondary:hover {
+    background: #f9fafb;
+    border-color: #cbd5e1;
+}
+
+.btn:focus-visible {
+    outline: 3px solid #bfdbfe;
+    outline-offset: 2px;
+}
+
+/* Animation */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive */
+
+@media (max-width: 480px) {
+    body {
+        align-items: flex-start;
+        padding: 18px 12px;
+    }
+
+    .product-card {
+        padding: 24px 19px;
+        border-radius: 13px;
+    }
+
+    .card-header {
+        margin-bottom: 24px;
+    }
+
+    .card-header h1 {
+        font-size: 23px;
+    }
+
+    .info-row {
+        padding: 15px 0;
+    }
+
+    .total-section {
+        padding: 16px 13px;
+    }
+
+    .total-price {
+        font-size: 21px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none;
+        transition: none;
+    }
+}

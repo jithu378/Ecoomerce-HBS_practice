@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase | Product Details</title>
+
+    <link rel="stylesheet" href="/css/singleDetails.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="/products/" class="logo">
+            Shop<span>Ease.</span>
+        </a>
+
+        <nav aria-label="Main navigation">
+            <a href="/products/">Home</a>
+            <a href="/products/productDetails" class="active" aria-current="page">Products</a>
+            <a href="/products/add">Add Product</a>
+        </nav>
+
+        <a href="/products/productDetails" class="nav-btn">
+            Explore Products
+        </a>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- PAGE HEADER -->
+        <div class="page-header">
+            <span class="section-tag">PRODUCT INFORMATION</span>
+            <h1>Product Details</h1>
+            <p>View complete information about your selected product.</p>
+        </div>
+
+
+<!-- PRODUCT DETAILS CARD -->
+<section class="details-card">
+
+    <div class="product-icon">
+        🛍️
+    </div>
+
+    <div class="product-info">
+
+        <span class="product-label">PRODUCT INFORMATION</span>
+        <h2>{{data.productName}}</h2>
+
+    </div>
+
+    <div class="product-image-wrap">
+        <img class="product-image" src="{{data.productImage}}" alt="{{data.productName}}">
+    </div>
+
+    <div class="details-grid">
+
+        <div class="detail-item">
+            <span>Product Name</span>
+            <h3>{{data.productName}}</h3>
+        </div>
+
+        <div class="detail-item">
+            <span>Product Price</span>
+            <h3>₹{{data.productPrice}}</h3>
+        </div>
+
+        <div class="detail-item">
+            <span>Available Stock</span>
+            <h3>{{data.productStock}}</h3>
+        </div>
+
+    </div>
+
+    <div class="product-actions">
+        <a href="/products/update/{{data._id}}" class="update-btn">
+            Update Product
+        </a>
+
+        <form action="/products/delete/{{data._id}}" method="POST">
+            <button type="submit" class="delete-btn">Delete Product</button>
+        </form>
+
+        <a href="/products/productDetails" class="back-btn">
+            ← Back to Products
+        </a>
+    </div>
+
+</section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <a href="/products/" class="logo">
+            Shop<span>Ease.</span>
+        </a>
+
+        <p>Simple shopping. Better experience.</p>
+
+        <span>© 2026 ShopEase. All rights reserved.</span>
+
+    </footer>
+
+</body>
+
+</html>

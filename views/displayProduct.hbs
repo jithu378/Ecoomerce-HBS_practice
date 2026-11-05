@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products</title>
+
+    <link rel="stylesheet" href="/css/displayProduct.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <a href="/products/" class="logo">
+        Shop<span>Ease.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="/products/">Home</a>
+        <a href="/products/productDetails" class="active" aria-current="page">Products</a>
+        <a href="/products/add">Add Product</a>
+    </nav>
+
+    <a href="/products/productDetails" class="nav-btn">
+        Explore Products
+    </a>
+
+</header>
+
+    <div class="container">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <h1>Our Products</h1>
+                <p>Explore all available products.</p>
+            </div>
+        </div>
+
+
+        <!-- Product Cards -->
+        <div class="product-grid">
+
+            {{#each productData}}
+
+            <div class="product-card">
+
+                <div class="product-info">
+                    <div class="product-image-wrap">
+                        <img class="product-image" src="{{productImage}}" alt="{{productName}}">
+                    </div>
+
+                    <h2>{{productName}}</h2>
+
+                    <p class="product-price">
+                        ₹{{productPrice}}
+                    </p>
+                </div>
+
+                <a href="/products/single_product/{{_id}}" class="view-btn">
+                    View Details
+                </a>
+
+            </div>
+
+            {{else}}
+
+            <div class="empty-message">
+                <div class="empty-icon" aria-hidden="true">⌕</div>
+                <h3>No Products Found</h3>
+                <p>There are currently no products available.</p>
+                <a href="/products/add" class="empty-btn">Add your first product</a>
+            </div>
+
+            {{/each}}
+
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <a href="/products/" class="logo">Shop<span>Ease.</span></a>
+        <p>Simple shopping. Better experience.</p>
+        <span>© 2026 ShopEase. All rights reserved.</span>
+    </footer>
+
+</body>
+
+</html>

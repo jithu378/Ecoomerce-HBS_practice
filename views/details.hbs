@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details</title>
+
+    <link rel="stylesheet" href="/css/details.css">
+</head>
+
+<body>
+
+    <main class="page-container">
+
+        <section class="product-card">
+
+            <div class="card-header">
+                <div class="product-icon">✓</div>
+
+                <h1>Product Details</h1>
+
+                <p>Your product has been added successfully.</p>
+            </div>
+
+            <div class="product-info">
+
+                <div class="info-row">
+                    <span class="label">Product Name</span>
+                    <span class="value">{{data.productName}}</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="label">Price per Unit</span>
+                    <span class="value">₹{{data.productPrice}}</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="label">Available Stock</span>
+                    <span class="value">{{data.productStock}}</span>
+                </div>
+
+                <div class="product-image-row">
+                    <img class="product-image" src="{{data.productImage}}" alt="{{data.productName}}">
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+                <a href="/products/add" class="btn btn-primary">
+                    Add Another Product
+                </a>
+
+                <a href="/products/productDetails" class="btn btn-secondary">
+                    View All Products
+                </a>
+
+                <a href="/products/" class="btn btn-secondary">
+                    Back to Home
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
