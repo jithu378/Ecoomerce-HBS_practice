@@ -213,6 +213,17 @@ button:focus-visible {
     border-color: var(--primary);
 }
 
+.form-group input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.form-group input[type="number"]::-webkit-inner-spin-button,
+.form-group input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 @media (max-width: 850px) {
     .product-container {
         margin-top: 42px;

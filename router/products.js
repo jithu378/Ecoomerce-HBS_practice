@@ -7,7 +7,6 @@ const details = require("../models/productModel");
 // Import Multer
 const multer = require("multer");
 
-
 // MULTER CONFIGURATION
 // const file = multer({dest:"uploads/"})
 
@@ -92,10 +91,39 @@ router.post("/product_add", file.single("image"), async (req, res) => {
         }
     });
 
+router.get("/update/:id", async (req, res) => {
+    try{
+        const data = await details.findById(req.params.id);
+        res.render("update_product", {data});
+    } catch(error){
+        console.log(error)
+        res.redirect("/products/");
+    }
+})
+
+router.post("/updateSave/:id", file.single("image"),async(req, res) => {
+    try{
+        const { productName, price, stock } = req.body;
+        const data = {
+            productName: productName,
+            productPrice: price,
+            productStock: stock,
+        };
+        if(req.file){
+            data.productImage = `/uploads/${req.file.filename}`;
+        }
+        const update = await details.findByIdAndUpdate(req.params.id, data, {returnDocument:"after"})
+        res.redirect("/products/")
+    } catch(error){
+        console.log(error);
+        res.redirect("/products/")
+    }
+})
+
 // VIEW SINGLE PRODUCT
 router.get("/single_product/:id", async (req, res) => {
     const data = await details.findById(req.params.id);
-    res.render("single_product", {data: data});
+    res.render("single_product", {data});
 });
 
 
