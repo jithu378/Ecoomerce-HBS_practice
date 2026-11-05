@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product | ShopEase</title>
+    <link rel="stylesheet" href="/css/update_product.css">
+</head>
+<body>
+    <main class="product-container">
+        <a href="/products/single_product/{{data._id}}" class="back-btn">← Back to Product</a>
+
+        <header class="form-header">
+            <div class="product-icon" aria-hidden="true">✎</div>
+            <span class="section-tag">PRODUCT MANAGEMENT</span>
+            <h1>Update Product</h1>
+            <p>Edit the details below and save your changes.</p>
+        </header>
+
+        <form action="/products/update/{{data._id}}" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input
+                    type="text"
+                    id="productName"
+                    name="productName"
+                    value="{{data.productName}}"
+                    placeholder="Enter product name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price (₹)</label>
+                <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    value="{{data.productPrice}}"
+                    placeholder="Enter product price"
+                    min="0"
+                    step="0.01"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <input
+                    type="number"
+                    id="stock"
+                    name="stock"
+                    value="{{data.productStock}}"
+                    placeholder="Enter product stock"
+                    min="0"
+                    step="1"
+                    required
+                >
+            </div>
+
+            <div class="form-group image-group">
+                <label for="image">Product Image <span>(optional)</span></label>
+                <div class="current-image">
+                    <img src="{{data.productImage}}" alt="Current image of {{data.productName}}">
+                    <p>Current image. Choose a new file to replace it.</p>
+                </div>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+
+            <div class="button-group">
+                <a href="/products/single_product/{{data._id}}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
