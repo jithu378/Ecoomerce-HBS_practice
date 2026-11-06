@@ -11,6 +11,7 @@ mongoose.connect("mongodb://localhost:27017/E-commerce")
 });
 
 const productRouter = require("./router/products")
+const userRouter = require("./router/user")
 app.set("view engine","hbs")
 
 app.use("/uploads", express.static("uploads"))
@@ -18,6 +19,7 @@ app.use(express.static("public"))
 app.use(express.urlencoded({extended:true}))
 
 app.use("/products", productRouter)
+app.use("/user", userRouter)
 
 app.listen(3000, () => {
     console.log("Server is running on http://localhost:3000/products/");
