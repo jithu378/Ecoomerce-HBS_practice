@@ -101,7 +101,7 @@ router.get("/update/:id", async (req, res) => {
     }
 })
 
-router.post("/updateSave/:id", file.single("image"),async(req, res) => {
+router.post("/updateSave/:id" , file.single("image"),async(req, res) => {
     try{
         const { productName, price, stock } = req.body;
         const data = {
@@ -116,7 +116,7 @@ router.post("/updateSave/:id", file.single("image"),async(req, res) => {
         res.redirect("/products/")
     } catch(error){
         console.log(error);
-        res.redirect("/products/")
+        res.redirect("/products/");
     }
 })
 
