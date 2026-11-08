@@ -11,14 +11,14 @@ router.get("/login", (req, res) => {
 router.post("/loginData", async (req, res) => {
     const {email, password} = req.body;
     const userData = await user.findOne({email : email})
-    if(!user){
-        res.redirect("/user/user_login");
+    if(!userData){
+        res.redirect("/user/login");
     }
-    const match = await bcrypt.compare(password, userData.password)
+    const match = await bcrypt.compare(password, userData.password);
     if(!match){
-        res.redirect("/user/user_login");
+        res.redirect("/user/login");
     }
-    res.redirect("/products/")
+    res.redirect("/products/");
 })
 
 // REGISTER PAGE
