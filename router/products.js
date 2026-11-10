@@ -55,7 +55,7 @@ router.get("/productDetails", async (req, res) => {
 
 
 // ADD PRODUCT
-router.post("/product_add", file.single("image"), async (req, res) => {
+router.post("/product_add",auth, file.single("image"), async (req, res) => {
 
     // let productName = req.body.productName;
     // let price = req.body.price;
@@ -81,7 +81,7 @@ router.post("/product_add", file.single("image"), async (req, res) => {
 });
 
 //DELETE PRODUCT
-    router.post("/delete/:id", async (req, res) => {
+    router.post("/delete/:id",auth, async (req, res) => {
         try {
             await details.findByIdAndDelete(req.params.id);
             res.redirect("/products/");
@@ -91,7 +91,7 @@ router.post("/product_add", file.single("image"), async (req, res) => {
         }
     });
 
-router.get("/update/:id", async (req, res) => {
+router.get("/update/:id",auth, async (req, res) => {
     try{
         const data = await details.findById(req.params.id);
         res.render("update_product", {data});
@@ -101,7 +101,7 @@ router.get("/update/:id", async (req, res) => {
     }
 })
 
-router.post("/updateSave/:id" , file.single("image"),async(req, res) => {
+router.post("/updateSave/:id" ,auth, file.single("image"),async(req, res) => {
     try{
         const { productName, price, stock } = req.body;
         const data = {

@@ -4,11 +4,11 @@ const user = require("../models/userModel");
 const bcrypt = require("bcrypt");
 
 // LOGIN PAGE
-router.get("/login", (req, res) => {
+router.get("/login",auth, (req, res) => {
     res.render("user_login");
 });
 
-router.post("/loginData", async (req, res) => {
+router.post("/loginData",auth, async (req, res) => {
     const {email, password} = req.body;
     const userData = await user.findOne({email : email})
     if(!userData){
@@ -18,6 +18,8 @@ router.post("/loginData", async (req, res) => {
     if(!match){
         res.redirect("/user/login");
     }
+    req.session.userid = userData._id;
+    req.session.email = userData.email;
     res.redirect("/products/");
 })
 
@@ -38,5 +40,14 @@ router.post("/registerData", async (req,res) => {
     res.render("user_login")
 })
 
+router.get("/logout", (req,res) => {
+    req.session.destroy((err)= {
+        if(err){
+            res.end("something went wrong")
+            return;
+        }
+    })
+    return res.redirect("/user/login")
+})
 
 module.exports = router;

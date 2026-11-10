@@ -1,5 +1,6 @@
 const express = require ("express");
 const mongoose = require("mongoose");
+const session = require("express-session");
 
 const app = express();
 
@@ -13,6 +14,16 @@ mongoose.connect("mongodb://localhost:27017/E-commerce")
 const productRouter = require("./router/products")
 const userRouter = require("./router/user")
 app.set("view engine","hbs")
+
+app.use(session({
+    secret: "shopease_secret_key",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24,
+        httpOnly: true
+    }
+}));
 
 app.use("/uploads", express.static("uploads"))
 app.use(express.static("public"))
