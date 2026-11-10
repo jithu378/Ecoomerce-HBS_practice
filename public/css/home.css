@@ -37,6 +37,10 @@ a:focus-visible {
     outline-offset: 3px;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 .navbar {
     position: sticky;
     top: 0;
@@ -101,6 +105,24 @@ a:focus-visible {
     justify-self: end;
     color: var(--white);
     background: var(--primary);
+}
+
+.auth-actions {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    gap: 10px;
+}
+
+.nav-btn-secondary {
+    color: var(--primary);
+    background: var(--white);
+    border-color: var(--primary);
+}
+
+.auth-actions .nav-btn-secondary:hover {
+    color: var(--primary-dark);
+    background: var(--mist);
 }
 
 .nav-btn:hover,

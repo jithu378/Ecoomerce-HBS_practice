@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#f3f5ef">
     <title>Sign In | ShopEase</title>
     <link rel="stylesheet" href="/css/user_login.css">
+    <script src="/js/password_visibility.js" defer></script>
 </head>
 <body class="auth-page">
     <main class="auth-shell">
@@ -71,7 +72,7 @@
                     <div class="password-heading">
                         <label for="password">Password</label>
                         <label class="visibility-control" for="show-password">
-                            <input class="visibility-checkbox" id="show-password" type="checkbox">
+                            <input class="visibility-checkbox" id="show-password" type="checkbox" aria-controls="password">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg>
                             <span>Show</span>
                         </label>

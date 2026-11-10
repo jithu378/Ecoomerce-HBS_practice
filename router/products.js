@@ -3,6 +3,8 @@ const express = require("express");
 const router = express.Router();
 
 const details = require("../models/productModel");
+const auth = require("../middleware/auth");
+
 
 // Import Multer
 const multer = require("multer");

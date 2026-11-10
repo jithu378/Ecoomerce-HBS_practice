@@ -8,6 +8,7 @@
     <title>ShopEase | Product Details</title>
 
     <link rel="stylesheet" href="/css/singleDetails.css">
+    <script src="/js/password_visibility.js" defer></script>
 </head>
 
 <body>
@@ -25,9 +26,9 @@
             <a href="/products/add">Add Product</a>
         </nav>
 
-        <a href="/products/productDetails" class="nav-btn">
-            Explore Products
-        </a>
+        <div class="auth-actions">
+            <a href="/products/" class="nav-btn" data-logout hidden>Logout</a>
+        </div>
 
     </header>
 

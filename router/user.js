@@ -2,13 +2,14 @@ const express = require("express");
 const router = express.Router();
 const user = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const auth = require("../middleware/auth");
 
 // LOGIN PAGE
-router.get("/login",auth, (req, res) => {
+router.get("/login", (req, res) => {
     res.render("user_login");
 });
 
-router.post("/loginData",auth, async (req, res) => {
+router.post("/loginData", async (req, res) => {
     const {email, password} = req.body;
     const userData = await user.findOne({email : email})
     if(!userData){
@@ -20,7 +21,7 @@ router.post("/loginData",auth, async (req, res) => {
     }
     req.session.userid = userData._id;
     req.session.email = userData.email;
-    res.redirect("/products/");
+    res.redirect("/products/productDetails");
 })
 
 // REGISTER PAGE

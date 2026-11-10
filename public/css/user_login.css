@@ -351,10 +351,6 @@ input {
     border-radius: 3px;
 }
 
-.password-field:has(.visibility-checkbox:checked) .password-input {
-    -webkit-text-security: none;
-}
-
 .form-options {
     display: flex;
     align-items: center;

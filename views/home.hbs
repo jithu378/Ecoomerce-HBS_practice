@@ -8,6 +8,7 @@
     <title>ShopEase | Home</title>
 
     <link rel="stylesheet" href="/css/home.css">
+    <script src="/js/password_visibility.js" defer></script>
 </head>
 
 <body>
@@ -15,17 +16,12 @@
     <!-- NAVBAR -->
     <header class="navbar">
 
-        <a href="/products/" class="logo">Shop<span>Ease.</span></a>
+        <span class="logo">Shop<span>Ease.</span></span>
 
-        <nav aria-label="Main navigation">
-            <a href="/products/" class="active" aria-current="page">Home</a>
-            <a href="/products/productDetails">Products</a>
-            <a href="/products/add">Add Product</a>
-        </nav>
-
-        <a href="/products/productDetails" class="nav-btn">
-            Explore Products
-        </a>
+        <div class="auth-actions" data-home-auth hidden>
+            <a href="/user/login" class="nav-btn nav-btn-secondary">Login</a>
+            <a href="/user/register" class="nav-btn">Register</a>
+        </div>
 
     </header>
 

@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Product | ShopEase</title>
     <link rel="stylesheet" href="/css/update_product.css">
+    <script src="/js/password_visibility.js" defer></script>
 </head>
 <body>
     <main class="product-container">
-        <a href="/products/single_product/{{data._id}}" class="back-btn">← Back to Product</a>
+        <div class="page-actions">
+            <a href="/products/single_product/{{data._id}}" class="back-btn">← Back to Product</a>
+            <a href="/products/" class="back-btn" data-logout hidden>Logout</a>
+        </div>
 
         <header class="form-header">
             <div class="product-icon" aria-hidden="true">✎</div>

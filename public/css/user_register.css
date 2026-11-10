@@ -351,10 +351,6 @@ input {
     border-radius: 3px;
 }
 
-.auth-form:has(.visibility-checkbox:checked) .password-input {
-    -webkit-text-security: none;
-}
-
 .terms-control {
     margin-top: 1px;
 }
