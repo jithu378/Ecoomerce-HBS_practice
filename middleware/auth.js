@@ -4,4 +4,6 @@ const auth = (req,res,next) => {
     } else {
         return res.redirect("/user/login")
     }
-}
+};
+
+module.exports = auth;
