@@ -13,15 +13,15 @@ router.post("/loginData", async (req, res) => {
     const {email, password} = req.body;
     const userData = await user.findOne({email : email})
     if(!userData){
-        res.redirect("/user/login");
+        return res.redirect("/user/login");
     }
     const match = await bcrypt.compare(password, userData.password);
     if(!match){
-        res.redirect("/user/login");
+        return res.redirect("/user/login");
     }
     req.session.userid = userData._id;
-    req.session.email = userData.email;
-    res.redirect("/products/productDetails");
+    req.session.username = userData.username;
+    return res.redirect("/products/productDetails");
 })
 
 // REGISTER PAGE
@@ -41,8 +41,8 @@ router.post("/registerData", async (req,res) => {
     res.render("user_login")
 })
 
-router.get("/logout", (req,res) => {
-    req.session.destroy((err)= {
+router.get("/logout", auth, (req,res) => {
+    req.session.destroy((err)=> {
         if(err){
             res.end("something went wrong")
             return;

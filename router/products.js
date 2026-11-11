@@ -42,13 +42,13 @@ router.get("/", (req, res) => {
 
 
 // ADD PRODUCT PAGE
-router.get("/add", (req, res) => {
+router.get("/add", auth,(req, res) => {
     res.render("add_product");
 });
 
 
 // DISPLAY ALL PRODUCTS
-router.get("/productDetails", async (req, res) => {
+router.get("/productDetails",auth, async (req, res) => {
     const data = await details.find();
     res.render("displayProduct", {
         productData: data
@@ -123,7 +123,7 @@ router.post("/updateSave/:id" ,auth, file.single("image"),async(req, res) => {
 })
 
 // VIEW SINGLE PRODUCT
-router.get("/single_product/:id", async (req, res) => {
+router.get("/single_product/:id",auth, async (req, res) => {
     const data = await details.findById(req.params.id);
     res.render("single_product", {data});
 });
